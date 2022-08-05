@@ -1,0 +1,136 @@
+    // Variables
+
+// Fonts
+$base-font-size: 16px;
+$line-height: 1.5rem; // = 24px
+
+@font-face {
+    font-family: "Amiko";
+    src: url("Amiko-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+// Colors
+$rgba-primary-0: rgba(170, 57, 57,1);
+$rgba-primary-1: rgba(255,170,170,1);
+$rgba-primary-2: rgba(212,106,106,1);
+$rgba-primary-3: rgba(128, 21, 21,1);
+$rgba-primary-4: rgba( 85,  0,  0,1);
+
+
+    // General rules
+
+html {
+    box-sizing: border-box;
+    font-size: #{$base-font-size + '%'};
+    background-color: $rgba-primary-1;
+    font-family: "Amiko", sans-serif;
+}
+
+ul, ol {
+    padding-left: 0;
+    list-style-position: outside;
+}
+
+h1 {
+    font-size: 3.375rem;
+    letter-spacing: -4px;
+    color: $rgba-primary-3;
+    text-align: center;
+    margin-top: 3 * $line-height;
+    margin-bottom: $line-height;
+}
+
+form,
+div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+div {
+    flex: 1;
+}
+
+form {
+    font-size: 1.5rem;
+    line-height: $line-height;
+    background-color: $rgba-primary-0;
+    margin: 0 auto;
+    width: fit-content;
+    padding: 3.375rem;
+    flex-direction: column;
+}
+
+form,
+input,
+button {
+    border-radius: 1rem;
+}
+
+label,
+input,
+button,
+p {
+    margin: 0.5rem;
+    padding: 0.5rem;
+    border: none;
+    color: $rgba-primary-1
+}
+
+input {
+    flex: 2;
+    background-color: $rgba-primary-1;
+    color: $rgba-primary-4;
+    font-size: inherit;
+}
+
+label {
+    display: block;
+    text-align: left;
+    letter-spacing: -1px;
+    flex: 1;
+}
+
+button {
+    font-size: 2.25rem;
+    letter-spacing: 1px;
+    background-color: $rgba-primary-3;
+    flex: 1;
+    height: 100%;
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+input:focus {
+    border: 0.296rem inset $rgba-primary-0;
+}
+
+input:hover,
+button:hover {
+    filter:drop-shadow(0 0 0.444rem $rgba-primary-4);
+}
+
+button:active {
+    background-color: $rgba-primary-1;
+    color: $rgba-primary-3;
+}
+
+p {
+    font-size: 1rem;
+    margin: 0;
+    padding: 0.296rem;
+}
+
+// class for missing input
+
+.alert {
+    background-color: $rgba-primary-2;
+}
+
+// erasing default little arrows from number input
+
+input[type=number] {
+    appearance: textfield;
+}

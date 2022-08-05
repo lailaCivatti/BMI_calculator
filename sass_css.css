@@ -1,0 +1,119 @@
+@font-face {
+  font-family: "Amiko";
+  src: url("Amiko-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+html {
+  box-sizing: border-box;
+  font-size: 16px%;
+  background-color: rgb(255, 170, 170);
+  font-family: "Amiko", sans-serif;
+}
+
+ul, ol {
+  padding-left: 0;
+  list-style-position: outside;
+}
+
+h1 {
+  font-size: 3.375rem;
+  letter-spacing: -4px;
+  color: rgb(128, 21, 21);
+  text-align: center;
+  margin-top: 4.5rem;
+  margin-bottom: 1.5rem;
+}
+
+form,
+div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+div {
+  flex: 1;
+}
+
+form {
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  background-color: rgb(170, 57, 57);
+  margin: 0 auto;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 3.375rem;
+  flex-direction: column;
+}
+
+form,
+input,
+button {
+  border-radius: 1rem;
+}
+
+label,
+input,
+button,
+p {
+  margin: 0.5rem;
+  padding: 0.5rem;
+  border: none;
+  color: rgb(255, 170, 170);
+}
+
+input {
+  flex: 2;
+  background-color: rgb(255, 170, 170);
+  color: rgb(85, 0, 0);
+  font-size: inherit;
+}
+
+label {
+  display: block;
+  text-align: left;
+  letter-spacing: -1px;
+  flex: 1;
+}
+
+button {
+  font-size: 2.25rem;
+  letter-spacing: 1px;
+  background-color: rgb(128, 21, 21);
+  flex: 1;
+  height: 100%;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+input:focus {
+  border: 0.296rem inset rgb(170, 57, 57);
+}
+
+input:hover,
+button:hover {
+  filter: drop-shadow(0 0 0.444rem rgb(85, 0, 0));
+}
+
+button:active {
+  background-color: rgb(255, 170, 170);
+  color: rgb(128, 21, 21);
+}
+
+p {
+  font-size: 1rem;
+  margin: 0;
+  padding: 0.296rem;
+}
+
+.alert {
+  background-color: rgb(212, 106, 106);
+}
+
+input[type=number] {
+  -webkit-appearance: textfield;
+     -moz-appearance: textfield;
+          appearance: textfield;
+}/*# sourceMappingURL=sass_css.css.map */
