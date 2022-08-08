@@ -1,5 +1,4 @@
-//todo: restrict input of wrong characters/values during typing/before submission
-//todo: apply limits to the inputs for height and weight: cant be a 10m person or a 400 kg person...
+//todo: restrict input of wrong characters/values during typing
 //todo: make it responsive (mobile first)
 
 // REFERENCES:
@@ -29,7 +28,7 @@ function calcBMI(weight, height) {
     return BMI;
 };
 
-//remove previous alerts:
+// to remove previous alerts:
 function removeAlerts() {
     if (wAlert.textContent !== '') {
         weight.classList.remove("alert");
@@ -48,6 +47,29 @@ function removeResults() {
     form.removeChild(form.lastElementChild);
     console.log(`Deleted 1 paragraph.`);
 }
+};
+
+// to check if values are within limits
+function inputLimit() {
+    if (weightValue <= 2 || weightValue >= 650) {
+        removeAlerts();
+        removeResults();
+        weight.focus();
+        weight.setAttribute("class", "alert");
+        wAlert.classList.add("alert");
+        wAlert.textContent = `Please type a number between 2 and 650.`;
+        wContainer.appendChild(wAlert);
+    } else if (heightValue <= 0.3 || heightValue >= 2.50) {
+        removeAlerts();
+        removeResults();
+        height.focus();
+        height.setAttribute("class", "alert");
+        hAlert.classList.add("alert");
+        hAlert.textContent = `Please type a number between 0.3 and 2.50.`;
+        hContainer.appendChild(hAlert);
+    } else {
+        return true;
+    }
 };
 
 // to validate numbers
@@ -81,31 +103,35 @@ submitBtn.addEventListener('click', (e) => {
         // removing alerts and results
         removeAlerts();
         removeResults();
-        
-        // declaring result and paragraphs, then appending main result first
-        const result = calcBMI(weightValue, heightValue);
-        const paraResult = document.createElement("p");
-        const paraClassification = document.createElement("p");
-        
-        paraResult.textContent = `With ${weightValue}Kg and ${heightValue}m you have a BMI of ${result}Kg/m\u00B2.`;
-        form.appendChild(paraResult);
 
-        // choosing correct classification and appending it after main result
-        if (result < 18.5) {
-            paraClassification.textContent = `Go eat a cupcake, you are underweight.`;
-        } else if (18.5 <= result && result < 24.9) {
-            paraClassification.textContent = `Keep doing what you're doing, you are in the healthy weight range.`;
-        } else if (24.9 <= result && result < 29.9) {
-            paraClassification.textContent = `Maybe try to spend some more calories and avoid those cookies, because you are overweight...
-            But don't stress over it, life is too short. 
-            On second thought, go on and eat those cookies!`;
-        } else {
-            paraClassification.textContent = `Okay, it may be time to visit the doctor and make sure you are doing alright, because it seems you are obese.
-            Remember to take care of yourself too.`;
-        }
-        form.appendChild(paraClassification);
-        weight.value = '';
-        height.value = '';
+        // checking if values are within limits
+        if (inputLimit()) {
+            
+            // declaring result and paragraphs, then appending main result first
+            const result = calcBMI(weightValue, heightValue);
+            const paraResult = document.createElement("p");
+            const paraClassification = document.createElement("p");
+            
+            paraResult.textContent = `With ${weightValue}Kg and ${heightValue}m you have a BMI of ${result}Kg/m\u00B2.`;
+            form.appendChild(paraResult);
+
+            // choosing correct classification and appending it after main result
+            if (result < 18.5) {
+                paraClassification.textContent = `Go eat a cupcake, you are underweight.`;
+            } else if (18.5 <= result && result < 24.9) {
+                paraClassification.textContent = `Keep doing what you're doing, you are in the healthy weight range.`;
+            } else if (24.9 <= result && result < 29.9) {
+                paraClassification.textContent = `Maybe try to spend some more calories and avoid those cookies, because you are overweight...
+                But don't stress over it, life is too short. 
+                On second thought, go on and eat those cookies!`;
+            } else {
+                paraClassification.textContent = `Okay, it may be time to visit the doctor and make sure you are doing alright, because it seems you are obese.
+                Remember to take care of yourself too.`;
+            }
+            form.appendChild(paraClassification);
+            weight.value = '';
+            height.value = '';
+        };
 
     } else if (!weightValue) {
         removeAlerts();
