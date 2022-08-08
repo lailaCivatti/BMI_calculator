@@ -21,7 +21,7 @@ h1 {
   letter-spacing: -4px;
   color: rgb(128, 21, 21);
   text-align: center;
-  margin-top: 4.5rem;
+  margin-top: 3rem;
   margin-bottom: 1.5rem;
 }
 
@@ -41,11 +41,10 @@ form {
   line-height: 1.5rem;
   background-color: rgb(170, 57, 57);
   margin: 0 auto;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
+  max-width: 450px;
   padding: 3.375rem;
   flex-direction: column;
+  margin-bottom: 1.5rem;
 }
 
 form,
@@ -57,7 +56,8 @@ button {
 label,
 input,
 button,
-p {
+p,
+p.alert {
   margin: 0.5rem;
   padding: 0.5rem;
   border: none;
@@ -108,12 +108,6 @@ p {
   padding: 0.296rem;
 }
 
-.alert {
+input.alert {
   background-color: rgb(212, 106, 106);
-}
-
-input[type=number] {
-  -webkit-appearance: textfield;
-     -moz-appearance: textfield;
-          appearance: textfield;
 }/*# sourceMappingURL=sass_css.css.map */

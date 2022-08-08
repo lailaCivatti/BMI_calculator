@@ -38,7 +38,7 @@ h1 {
     letter-spacing: -4px;
     color: $rgba-primary-3;
     text-align: center;
-    margin-top: 3 * $line-height;
+    margin-top: 2 * $line-height;
     margin-bottom: $line-height;
 }
 
@@ -58,9 +58,10 @@ form {
     line-height: $line-height;
     background-color: $rgba-primary-0;
     margin: 0 auto;
-    width: fit-content;
+    max-width: 450px;
     padding: 3.375rem;
     flex-direction: column;
+    margin-bottom: $line-height;
 }
 
 form,
@@ -72,7 +73,8 @@ button {
 label,
 input,
 button,
-p {
+p,
+p.alert {
     margin: 0.5rem;
     padding: 0.5rem;
     border: none;
@@ -125,12 +127,6 @@ p {
 
 // class for missing input
 
-.alert {
+input.alert {
     background-color: $rgba-primary-2;
-}
-
-// erasing default little arrows from number input
-
-input[type=number] {
-    appearance: textfield;
 }
