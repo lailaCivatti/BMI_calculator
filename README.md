@@ -5,8 +5,7 @@ Still need to work on form validation and adding more functionalities to the app
 Things to do:
 1. Make design responsive;
 2. Make sure accessibility is okay;
-3. Apply limits to values users can enter;
-4. Place event for validating input on real time as user types;
-5. Check if SCSS is well structured (apply BEM);
+3. Place event for validating input on real time as user types;
+4. Check if SCSS is well structured (apply BEM);
 
 That's it for now =)
