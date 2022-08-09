@@ -3,9 +3,7 @@ It is supposed to be a simple interface where user enters weight and height and 
 Still need to work on form validation and adding more functionalities to the app, though.
 
 Things to do:
-1. Make design responsive;
-2. Make sure accessibility is okay;
-3. Place event for validating input on real time as user types;
-4. Check if SCSS is well structured (apply BEM);
+1. Make sure accessibility is okay;
+2. Place event for validating input on real time as user types;
 
 That's it for now =)

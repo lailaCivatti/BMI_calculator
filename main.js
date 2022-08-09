@@ -4,13 +4,13 @@
 // REFERENCES:
 
 // to HTML elements
-const form = document.querySelector("form");
-const weight = document.querySelector("input[name='weight']");
-const height = document.querySelector("input[name='height']");
-const submitBtn = document.querySelector("button");
+const form = document.querySelector(".b-form");
+const weight = document.querySelector(".b-weight__input");
+const height = document.querySelector(".b-height__input");
+const submitBtn = document.querySelector(".b-btn[type='submit']");
 
-const wContainer = document.querySelector(".weight");
-const hContainer = document.querySelector(".height");
+const wContainer = document.querySelector(".b-w_alert");
+const hContainer = document.querySelector(".b-h_alert");
 
 const wAlert = document.createElement("p");
 const hAlert = document.createElement("p");
@@ -55,15 +55,15 @@ function inputLimit() {
         removeAlerts();
         removeResults();
         weight.focus();
-        weight.setAttribute("class", "alert");
-        wAlert.classList.add("alert");
+        height.classList.add("alert");
+        hAlert.classList.add("alert");
         wAlert.textContent = `Please type a number between 2 and 650.`;
         wContainer.appendChild(wAlert);
     } else if (heightValue <= 0.3 || heightValue >= 2.50) {
         removeAlerts();
         removeResults();
         height.focus();
-        height.setAttribute("class", "alert");
+        height.classList.add("alert");
         hAlert.classList.add("alert");
         hAlert.textContent = `Please type a number between 0.3 and 2.50.`;
         hContainer.appendChild(hAlert);
@@ -137,7 +137,7 @@ submitBtn.addEventListener('click', (e) => {
         removeAlerts();
         removeResults();
         weight.focus();
-        weight.setAttribute("class", "alert");
+        weight.classList.add("alert");
         wAlert.classList.add("alert");
         wAlert.textContent = `Please type a number.`;
         wContainer.appendChild(wAlert);
@@ -146,7 +146,7 @@ submitBtn.addEventListener('click', (e) => {
         removeAlerts();
         removeResults();
         height.focus();
-        height.setAttribute("class", "alert");
+        height.classList.add("alert");
         hAlert.classList.add("alert");
         hAlert.textContent = `Please type a number.`;
         hContainer.appendChild(hAlert);
