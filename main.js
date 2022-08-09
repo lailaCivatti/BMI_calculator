@@ -1,5 +1,4 @@
 //todo: restrict input of wrong characters/values during typing
-//todo: make it responsive (mobile first)
 
 // REFERENCES:
 
