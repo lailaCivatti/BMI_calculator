@@ -1,4 +1,4 @@
-//todo: restrict input of wrong characters/values during typing
+//todo: apply DRY... are there a couple of functions that could avoid so much repetition?
 
 // REFERENCES:
 
@@ -27,27 +27,6 @@ function calcBMI(weight, height) {
     return BMI;
 };
 
-// to remove previous alerts:
-function removeAlerts() {
-    if (wAlert.textContent !== '') {
-        weight.classList.remove("alert");
-        wContainer.removeChild(wAlert);
-        wAlert.textContent = '';
-    } else if (hAlert.textContent !== '') {
-        height.classList.remove("alert");
-        hContainer.removeChild(hAlert);
-        hAlert.textContent = '';
-    }
-};
-
-// to remove previous results
-function removeResults() {
-    while (form.lastElementChild.tagName === "P") {
-    form.removeChild(form.lastElementChild);
-    console.log(`Deleted 1 paragraph.`);
-}
-};
-
 // to check if values are within limits
 function inputLimit() {
     if (weightValue <= 2 || weightValue >= 650) {
@@ -71,13 +50,25 @@ function inputLimit() {
     }
 };
 
-// to validate numbers
-function isNum(num) {
-    if (typeof num === "number") {
-        return true;
-    } else {
-        return false;
+// to remove previous alerts:
+function removeAlerts() {
+    if (wAlert.textContent !== '') {
+        weight.classList.remove("alert");
+        wContainer.removeChild(wAlert);
+        wAlert.textContent = '';
+    } else if (hAlert.textContent !== '') {
+        height.classList.remove("alert");
+        hContainer.removeChild(hAlert);
+        hAlert.textContent = '';
     }
+};
+
+// to remove previous results
+function removeResults() {
+    while (form.lastElementChild.tagName === "P") {
+    form.removeChild(form.lastElementChild);
+    console.log(`Deleted 1 paragraph.`);
+}
 };
 
 // FUNCTIONALITY:
@@ -85,7 +76,63 @@ function isNum(num) {
 // begin ready for typing
 weight.focus();
 
-// "Calculate" button event listener:
+// Event listeners:
+weight.addEventListener("input", (e) => {
+    
+    weightValue = Number(e.target.value);
+
+    if (!weightValue) {
+        removeAlerts();
+        removeResults();
+        weight.focus();
+        weight.classList.add("alert");
+        wAlert.classList.add("alert");
+        wAlert.textContent = `Please type a number.`;
+        wContainer.appendChild(wAlert);
+
+    } else if (weightValue <= 2 || weightValue >= 650) {
+        removeAlerts();
+        removeResults();
+        weight.focus();
+        weight.classList.add("alert");
+        wAlert.classList.add("alert");
+        wAlert.textContent = `Please type a number between 2 and 650.`;
+        wContainer.appendChild(wAlert);
+
+    } else {
+        removeAlerts();
+        removeResults();
+    }
+});
+
+height.addEventListener("input", (e) => {
+    
+    heightValue = Number(e.target.value);
+
+    if (!heightValue) {
+        removeAlerts();
+        removeResults();
+        height.focus();
+        height.classList.add("alert");
+        hAlert.classList.add("alert");
+        hAlert.textContent = `Please type a number.`;
+        hContainer.appendChild(hAlert);
+
+    } else if (heightValue <= 0.3 || heightValue >= 2.50) {
+        removeAlerts();
+        removeResults();
+        height.focus();
+        height.classList.add("alert");
+        hAlert.classList.add("alert");
+        hAlert.textContent = `Please type a number between 0.3 and 2.50.`;
+        hContainer.appendChild(hAlert);
+    
+    } else {
+        removeAlerts();
+        removeResults();
+    }
+});
+
 submitBtn.addEventListener('click', (e) => {
 
     // avoid sending form
@@ -94,7 +141,6 @@ submitBtn.addEventListener('click', (e) => {
     //taking value strings and returning numbers
     weightValue = Number(weight.value);
     heightValue = Number(height.value);
-    console.log(weightValue,heightValue);
 
     // checking if both inputs are there && are numbers && are not empty strings
     if (weightValue && heightValue) {
