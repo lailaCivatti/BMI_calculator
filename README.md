@@ -4,6 +4,6 @@ Still need to work on form validation and adding more functionalities to the app
 
 Things to do:
 1. Make sure accessibility is okay;
-2. Place event for validating input on real time as user types;
+2. Make JS code DRY;
 
 That's it for now =)
