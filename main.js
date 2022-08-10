@@ -1,4 +1,4 @@
-//todo: apply DRY... are there a couple of functions that could avoid so much repetition?
+//todo: fix alert removal bug: two alerts are not showing up at the same time because they erase each other;
 
 // REFERENCES:
 
@@ -27,24 +27,54 @@ function calcBMI(weight, height) {
     return BMI;
 };
 
+// to alert: weight limit
+function wLimitAlert() {
+    weight.focus();
+    weight.classList.add("alert");
+    wAlert.classList.add("alert");
+    wAlert.textContent = `Please type a number between 2 and 650.`;
+    wContainer.appendChild(wAlert);
+};
+
+// to alert: height limit
+function hLimitAlert() {
+    height.focus();
+    height.classList.add("alert");
+    hAlert.classList.add("alert");
+    hAlert.textContent = `Please type a number between 0.3 and 2.50.`;
+    hContainer.appendChild(hAlert);
+};
+
+// to alert: weight NaN input
+function wNaNAlert() {
+    weight.focus();
+    weight.classList.add("alert");
+    wAlert.classList.add("alert");
+    wAlert.textContent = `Please type a number.`;
+    wContainer.appendChild(wAlert);
+};
+
+// to alert: height NaN input
+function hNaNAlert() {
+    height.focus();
+    height.classList.add("alert");
+    hAlert.classList.add("alert");
+    hAlert.textContent = `Please type a number.`;
+    hContainer.appendChild(hAlert);
+};
+
 // to check if values are within limits
 function inputLimit() {
     if (weightValue <= 2 || weightValue >= 650) {
         removeAlerts();
         removeResults();
-        weight.focus();
-        height.classList.add("alert");
-        hAlert.classList.add("alert");
-        wAlert.textContent = `Please type a number between 2 and 650.`;
-        wContainer.appendChild(wAlert);
+        wLimitAlert();
+
     } else if (heightValue <= 0.3 || heightValue >= 2.50) {
         removeAlerts();
         removeResults();
-        height.focus();
-        height.classList.add("alert");
-        hAlert.classList.add("alert");
-        hAlert.textContent = `Please type a number between 0.3 and 2.50.`;
-        hContainer.appendChild(hAlert);
+        hLimitAlert();
+
     } else {
         return true;
     }
@@ -84,20 +114,12 @@ weight.addEventListener("input", (e) => {
     if (!weightValue) {
         removeAlerts();
         removeResults();
-        weight.focus();
-        weight.classList.add("alert");
-        wAlert.classList.add("alert");
-        wAlert.textContent = `Please type a number.`;
-        wContainer.appendChild(wAlert);
+        wNaNAlert();
 
     } else if (weightValue <= 2 || weightValue >= 650) {
         removeAlerts();
         removeResults();
-        weight.focus();
-        weight.classList.add("alert");
-        wAlert.classList.add("alert");
-        wAlert.textContent = `Please type a number between 2 and 650.`;
-        wContainer.appendChild(wAlert);
+        wLimitAlert();
 
     } else {
         removeAlerts();
@@ -112,21 +134,13 @@ height.addEventListener("input", (e) => {
     if (!heightValue) {
         removeAlerts();
         removeResults();
-        height.focus();
-        height.classList.add("alert");
-        hAlert.classList.add("alert");
-        hAlert.textContent = `Please type a number.`;
-        hContainer.appendChild(hAlert);
+        hNaNAlert();
 
     } else if (heightValue <= 0.3 || heightValue >= 2.50) {
         removeAlerts();
         removeResults();
-        height.focus();
-        height.classList.add("alert");
-        hAlert.classList.add("alert");
-        hAlert.textContent = `Please type a number between 0.3 and 2.50.`;
-        hContainer.appendChild(hAlert);
-    
+        hLimitAlert();
+
     } else {
         removeAlerts();
         removeResults();
@@ -181,19 +195,11 @@ submitBtn.addEventListener('click', (e) => {
     } else if (!weightValue) {
         removeAlerts();
         removeResults();
-        weight.focus();
-        weight.classList.add("alert");
-        wAlert.classList.add("alert");
-        wAlert.textContent = `Please type a number.`;
-        wContainer.appendChild(wAlert);
+        wNaNAlert();
 
     } else if (!heightValue) {
         removeAlerts();
         removeResults();
-        height.focus();
-        height.classList.add("alert");
-        hAlert.classList.add("alert");
-        hAlert.textContent = `Please type a number.`;
-        hContainer.appendChild(hAlert);
+        hNaNAlert();
     } 
 });
