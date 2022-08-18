@@ -64,12 +64,12 @@ html {
 .b-weight__input,
 .b-height__input {
   flex: 2;
-  background-color: rgb(255, 170, 170);
+  background-color: rgb(212, 106, 106);
   color: rgb(85, 0, 0);
   font-size: inherit;
   margin: 0.5rem;
   padding: 0.5rem;
-  border: none;
+  border: 0.296rem inset rgb(170, 57, 57);
   border-radius: 1rem;
   width: 100%;
 }
@@ -101,18 +101,21 @@ html {
 
 .b-weight__input:focus,
 .b-height__input:focus {
-  border: 0.296rem inset rgb(170, 57, 57);
+  outline: none;
+  background-color: rgb(255, 170, 170);
 }
 
 .b-weight__input:hover,
 .b-height__input:hover,
 .b-btn:hover {
   filter: drop-shadow(0 0 0.444rem rgb(85, 0, 0));
+  outline: none;
 }
 
 .b-btn:active {
   background-color: rgb(255, 170, 170);
   color: rgb(128, 21, 21);
+  outline: none;
 }
 
 p {

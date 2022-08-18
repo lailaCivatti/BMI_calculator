@@ -80,12 +80,12 @@ html {
 .b-weight__input,
 .b-height__input {
     flex: 2;
-    background-color: $rgba-primary-1;
+    background-color: $rgba-primary-2;
     color: $rgba-primary-4;
     font-size: inherit;
     margin: 0.5rem;
     padding: 0.5rem;
-    border: none;
+    border: 0.296rem inset $rgba-primary-0;
     border-radius: 1rem;
     width: 100%;
 }
@@ -119,18 +119,21 @@ html {
 
 .b-weight__input:focus,
 .b-height__input:focus {
-    border: 0.296rem inset $rgba-primary-0;
+    outline: none;
+    background-color: $rgba-primary-1;
 }
 
 .b-weight__input:hover,
 .b-height__input:hover,
 .b-btn:hover {
     filter: drop-shadow(0 0 0.444rem $rgba-primary-4);
+    outline: none;
 }
 
 .b-btn:active {
     background-color: $rgba-primary-1;
     color: $rgba-primary-3;
+    outline: none;
 }
 
 // JavaScript-created selectors
