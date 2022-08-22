@@ -19,6 +19,7 @@ html {
   box-sizing: border-box;
   font-size: 16px;
   background-color: rgb(255, 170, 170);
+  background: linear-gradient(180deg, rgb(255, 170, 170), rgb(212, 106, 106), rgb(170, 57, 57));
   font-family: "Amiko", sans-serif;
   height: 100%;
   width: 100%;
@@ -50,6 +51,7 @@ html {
   height: fit-content;
   padding: 2.25rem;
   border-radius: 1rem;
+  filter: drop-shadow(0 0 0.3rem rgb(85, 0, 0));
 }
 
 .b-weight,
@@ -97,6 +99,7 @@ html {
   padding: 1rem;
   margin: 1rem 0.5rem 0.5rem;
   width: 100%;
+  cursor: pointer;
 }
 
 .b-weight__input:focus,
