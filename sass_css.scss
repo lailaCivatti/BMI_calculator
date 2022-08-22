@@ -37,6 +37,7 @@ html {
     box-sizing: border-box;
     font-size: $base-font-size;
     background-color: $rgba-primary-1;
+    background: linear-gradient(180deg, $rgba-primary-1, $rgba-primary-2, $rgba-primary-0);
     font-family: "Amiko", sans-serif;
     height: 100%;
     width: 100%;
@@ -66,6 +67,7 @@ html {
     height: fit-content;
     padding: 2.25rem;
     border-radius: 1rem;
+    filter: drop-shadow(0 0 0.3rem $rgba-primary-4);
 }
 
 .b-weight,
@@ -113,6 +115,7 @@ html {
     padding: 1rem;
     margin: 1rem 0.5rem 0.5rem;
     width: 100%;
+    cursor: pointer;
 }
 
 // Pseudo-classes
