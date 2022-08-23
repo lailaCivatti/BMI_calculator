@@ -29,7 +29,7 @@ $rgba-primary-4: rgba( 85,  0,  0,1);
     // General rules
 
 html {
-    height: 100vh;
+    height: 100%;
     font-size: $base-font-size;
 }
 
@@ -39,9 +39,9 @@ html {
     background-color: $rgba-primary-1;
     background: linear-gradient(180deg, $rgba-primary-1, $rgba-primary-2, $rgba-primary-0);
     font-family: "Amiko", sans-serif;
-    height: 100%;
     width: 100%;
-    margin: 0;
+    margin: 0 auto;
+    padding: 0;
 }
 
 .b-title {
