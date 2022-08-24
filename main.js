@@ -3,6 +3,7 @@
 // REFERENCES:
 
 // to HTML elements
+const html = document.querySelector("html");
 const form = document.querySelector(".b-form");
 const weight = document.querySelector(".b-weight__input");
 const height = document.querySelector(".b-height__input");
@@ -18,6 +19,17 @@ let weightValue;
 let heightValue;
 
 // FUNCTIONS:
+
+// to fix form overflow by changing viewport height on html
+function fixVH() {
+    if (form.lastElementChild.tagName === "P" || wAlert.textContent !== '' || hAlert.textContent !== '') {
+        html.classList.remove("b-html__vh100");
+        html.classList.add("b-html__vh140");
+    } else {
+        html.classList.remove("b-html__vh140");
+        html.classList.add("b-html__vh100");
+    }
+};
 
 // to calculate Body Mass Index
 function calcBMI(weight, height) {
@@ -191,15 +203,16 @@ submitBtn.addEventListener('click', (e) => {
             weight.value = '';
             height.value = '';
         };
-
+        
     } else if (!weightValue) {
         removeAlerts();
         removeResults();
         wNaNAlert();
-
+        
     } else if (!heightValue) {
         removeAlerts();
         removeResults();
         hNaNAlert();
     } 
+    fixVH();
 });
