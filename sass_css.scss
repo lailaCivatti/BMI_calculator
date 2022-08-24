@@ -2,7 +2,7 @@
 
 // Fonts
 $base-font-size: 16px;
-$line-height: 1.5rem; // = 24px
+$line-height: 1.5 * $base-font-size; // = 24px
 
 @font-face {
     font-family: "Amiko";
@@ -29,23 +29,24 @@ $rgba-primary-4: rgba( 85,  0,  0,1);
     // General rules
 
 html {
-    height: 100%;
     font-size: $base-font-size;
+    background-color: $rgba-primary-1;
+    background: border-box linear-gradient(180deg, $rgba-primary-1, $rgba-primary-2, $rgba-primary-0) 100% 100%;
 }
+
 
 .b-page {
     box-sizing: border-box;
     font-size: $base-font-size;
-    background-color: $rgba-primary-1;
-    background: linear-gradient(180deg, $rgba-primary-1, $rgba-primary-2, $rgba-primary-0);
     font-family: "Amiko", sans-serif;
     width: 100%;
+    height: fit-content;
     margin: 0 auto;
     padding: 0;
 }
 
 .b-title {
-    font-size: 2.25rem;
+    font-size: 2.25 * $base-font-size;
     font-weight: 700;
     letter-spacing: -2px;
     color: $rgba-primary-3;
@@ -59,10 +60,10 @@ html {
     flex-wrap: wrap;
     flex-direction: column;
     justify-content: space-between;
-    font-size: 1.3rem;
+    font-size: 1.3 * $base-font-size;
     line-height: $line-height;
     background-color: $rgba-primary-0;
-    margin: 0 auto;
+    margin: 0 auto $line-height;
     max-width: 450px;
     height: fit-content;
     padding: 2.25rem;
@@ -84,6 +85,7 @@ html {
     flex: 2;
     background-color: $rgba-primary-2;
     color: $rgba-primary-4;
+    caret-color: $rgba-primary-4;
     font-size: inherit;
     margin: 0.5rem;
     padding: 0.5rem;
@@ -106,16 +108,17 @@ html {
 
 .b-btn {
     flex: 1;
-    font-size: 1.5rem;
+    font-size: 1.5 *$base-font-size;
     background-color: $rgba-primary-3;
     color: $rgba-primary-1;
     height: 2*$line-height;
     border-radius: 1rem;
     border: none;
-    padding: 1rem;
-    margin: 1rem 0.5rem 0.5rem;
+    padding: 1rem 0.5rem;
+    margin: 1rem 0;
     width: 100%;
     cursor: pointer;
+    outline: none;
 }
 
 // Pseudo-classes
@@ -128,7 +131,8 @@ html {
 
 .b-weight__input:hover,
 .b-height__input:hover,
-.b-btn:hover {
+.b-btn:hover,
+.b-btn:focus {
     filter: drop-shadow(0 0 0.444rem $rgba-primary-4);
     outline: none;
 }
@@ -141,10 +145,21 @@ html {
 
 // JavaScript-created selectors
 
+.b-html__vh110 {
+    height: 110vh;
+}
+
+.b-html__vh120 {
+    height: 120vh;
+}
+
+.b-html__vh140 {
+    height: 140vh;
+}
+
 p {
     flex: 1;
-    font-size: 1rem;
-    margin-left: 0.5rem;
+    font-size: $base-font-size;
     padding: 0.5rem;
     border: none;
     color: $rgba-primary-1;
@@ -157,13 +172,37 @@ p {
 
 // @media queries --desktop first this time--
 
-@media screen and (max-width: 600px) {
-    
-    html {
-        font-size: 12px;
+@media only screen 
+    and (max-width: 600px) {
+        
+        .b-title {
+            font-size: 2 * $base-font-size;
+            margin-top: 2 * $base-font-size;
+            margin-bottom: $base-font-size;
+        }
+
+        .b-form {
+            font-size: $base-font-size;
+            padding: 1rem;
+            max-width: 65%;
+        }
     }
-    
-    .b-form {
-        max-width: 65%;
+
+@media only screen 
+    and (max-height: 450px) {
+
+        .b-html__vh140 {
+            height: auto;
+        }
+
+        .b-title {
+            font-size: 2 * $base-font-size;
+            margin-top: 2 * $base-font-size;
+            margin-bottom: $base-font-size;
+        }
+
+        .b-form {
+            font-size: $base-font-size;
+            padding: 1rem;
+        }
     }
-}
