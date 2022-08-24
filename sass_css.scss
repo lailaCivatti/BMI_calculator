@@ -34,13 +34,6 @@ html {
     background: border-box linear-gradient(180deg, $rgba-primary-1, $rgba-primary-2, $rgba-primary-0) 100% 100%;
 }
 
-.b-html__vh100 {
-    height: 100vh;
-}
-
-.b-html__vh140 {
-    height: 140vh;
-}
 
 .b-page {
     box-sizing: border-box;
@@ -152,6 +145,18 @@ html {
 
 // JavaScript-created selectors
 
+.b-html__vh110 {
+    height: 110vh;
+}
+
+.b-html__vh120 {
+    height: 120vh;
+}
+
+.b-html__vh140 {
+    height: 140vh;
+}
+
 p {
     flex: 1;
     font-size: $base-font-size;
@@ -167,32 +172,37 @@ p {
 
 // @media queries --desktop first this time--
 
-@media screen and (max-width: 600px) {
-    
-    .b-title {
-        font-size: 2 * $base-font-size;
-        margin-top: 2 * $base-font-size;
-        margin-bottom: $base-font-size;
+@media only screen 
+    and (max-width: 600px) {
+        
+        .b-title {
+            font-size: 2 * $base-font-size;
+            margin-top: 2 * $base-font-size;
+            margin-bottom: $base-font-size;
+        }
+
+        .b-form {
+            font-size: $base-font-size;
+            padding: 1rem;
+            max-width: 65%;
+        }
     }
 
-    .b-form {
-        font-size: $base-font-size;
-        padding: 1rem;
-        max-width: 65%;
+@media only screen 
+    and (max-height: 450px) {
+
+        .b-html__vh140 {
+            height: auto;
+        }
+
+        .b-title {
+            font-size: 2 * $base-font-size;
+            margin-top: 2 * $base-font-size;
+            margin-bottom: $base-font-size;
+        }
+
+        .b-form {
+            font-size: $base-font-size;
+            padding: 1rem;
+        }
     }
-
-}
-
-@media screen and (orientation: landscape) and (max-height: 450px) {
-
-    .b-title {
-        font-size: 2 * $base-font-size;
-        margin-top: 2 * $base-font-size;
-        margin-bottom: $base-font-size;
-    }
-
-    .b-form {
-        font-size: $base-font-size;
-        padding: 1rem;
-    }
-}

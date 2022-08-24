@@ -22,12 +22,15 @@ let heightValue;
 
 // to fix form overflow by changing viewport height on html
 function fixVH() {
-    if (form.lastElementChild.tagName === "P" || wAlert.textContent !== '' || hAlert.textContent !== '') {
-        html.classList.remove("b-html__vh100");
+    if (form.lastElementChild.tagName === "P") {
+        html.removeAttribute("class");
         html.classList.add("b-html__vh140");
+    } else if (wAlert.textContent !== '' || hAlert.textContent !== '') {
+        html.removeAttribute("class");
+        html.classList.add("b-html__vh120");
     } else {
-        html.classList.remove("b-html__vh140");
-        html.classList.add("b-html__vh100");
+        html.removeAttribute("class");
+        html.classList.add("b-html__vh110");
     }
 };
 
