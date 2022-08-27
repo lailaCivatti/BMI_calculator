@@ -36,7 +36,7 @@ function fixVH() {
 
 // to calculate Body Mass Index
 function calcBMI(weight, height) {
-    let BMI = weight / (height ** 2);
+    let BMI = weight / ((height*1E-2) ** 2);
     BMI = Math.round(BMI*100)/100;
     console.log(BMI);
     return BMI;
@@ -47,7 +47,7 @@ function wLimitAlert() {
     weight.focus();
     weight.classList.add("alert");
     wAlert.classList.add("alert");
-    wAlert.textContent = `Please type a number between 2 and 650.`;
+    wAlert.textContent = `Please type a number between 2 and 650 Kg.`;
     wContainer.appendChild(wAlert);
 };
 
@@ -56,7 +56,7 @@ function hLimitAlert() {
     height.focus();
     height.classList.add("alert");
     hAlert.classList.add("alert");
-    hAlert.textContent = `Please type a number between 0.3 and 2.50.`;
+    hAlert.textContent = `Please type a number between 30 and 250 cm.`;
     hContainer.appendChild(hAlert);
 };
 
@@ -80,12 +80,12 @@ function hNaNAlert() {
 
 // to check if values are within limits
 function inputLimit() {
-    if (weightValue <= 2 || weightValue >= 650) {
+    if (weightValue < 2 || weightValue > 650) {
         removeAlerts();
         removeResults();
         wLimitAlert();
 
-    } else if (heightValue <= 0.3 || heightValue >= 2.50) {
+    } else if (heightValue < 30 || heightValue > 250) {
         removeAlerts();
         removeResults();
         hLimitAlert();
@@ -131,7 +131,7 @@ weight.addEventListener("input", (e) => {
         removeResults();
         wNaNAlert();
 
-    } else if (weightValue <= 2 || weightValue >= 650) {
+    } else if (weightValue < 2 || weightValue > 650) {
         removeAlerts();
         removeResults();
         wLimitAlert();
@@ -151,7 +151,7 @@ height.addEventListener("input", (e) => {
         removeResults();
         hNaNAlert();
 
-    } else if (heightValue <= 0.3 || heightValue >= 2.50) {
+    } else if (heightValue < 30 || heightValue > 250) {
         removeAlerts();
         removeResults();
         hLimitAlert();
@@ -186,7 +186,7 @@ submitBtn.addEventListener('click', (e) => {
             const paraResult = document.createElement("p");
             const paraClassification = document.createElement("p");
             
-            paraResult.textContent = `With ${weightValue}Kg and ${heightValue}m you have a BMI of ${result}Kg/m\u00B2.`;
+            paraResult.textContent = `With ${weightValue} Kg and ${heightValue} cm you have a BMI of ${result}Kg/m\u00B2.`;
             form.appendChild(paraResult);
 
             // choosing correct classification and appending it after main result
