@@ -5,5 +5,6 @@ Still need to work on form validation and adding more functionalities to the app
 Things to do:
 1. Make sure accessibility is okay;
 2. Fix alert removal bug;
+3. Add other metric units to the UI so user can decide what to use for input
 
 That's it for now =)
